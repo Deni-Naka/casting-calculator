@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Casting calculator</title>
+  </head>
+  <body>
+
+
+  <video id="background-video" autoplay loop muted>
+    <source src="bg-video.mp4" type="video/mp4">
+  </video>
+
+    <!-- Popup -->
+
+    <div id="popup" class="popup">
+      <div class="popup-content">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <p>Upload the model before proceeding to the second step.</p>
+      </div>
+    </div> 
+      
+   <form action="#" class="form" id="mainform">
+      <img src="logo.png" class="logo">
+      <h1 class="text-center">Printing and casting price calculation <br> (STL file only)</h1>
+      <!-- Progress bar -->
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        
+        <div
+          class="progress-step progress-step-active"
+          data-title="Upload"
+        ></div>
+        <div class="progress-step" data-title="Preview"></div>
+        <div class="progress-step" data-title="Material"></div>
+      </div>
+
+      <!-- Steps -->
+      <div class="form-step form-step-active">
+
+          <div class="uploadform">
+            <input name="file" id="fileInput" ref="fileInput" type="file"  onchange="getFileName()"  accept=".stl">
+            <div>
+              <img src="upload.png" alt="upload" width="7%" class="mx-2">
+              Drag and drop <span style="color: #c89a22;">.stl</span> file here or   
+              <button class="uploadbtn">Browse</button></div>
+          </div>
+
+        <div class="filename">
+            <span id="fileName" class="text-primary">
+            </span>
+        </div>
+        <div class="">
+          <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+        </div>
+      </div>
+      <div class="form-step ">
+        <div class="card" id="card">
+      
+        </div>
+        <div class="model-info">
+          <div class="info" id="infoDisplay"></div>
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="#" class="btn btn-next">Next</a>
+        </div>
+      </div>
+      <div class="form-step">
+        <div class="material-options box row">
+          <div class="matgrid ">
+          <div class="material-option shell">
+            <img src="img/materials/gold.jpg" class="preview goldpreview" alt="Gold" />
+            <button class="btn-material active" data-material="gold"><b>Gold</b><p class="goldbtn"> Yellow, White, Pink</p></button>
+          </div>
+          <div class="material-option shell">
+            <img src="img/materials/silver.jpg" class="preview" alt="Silver" />
+            <button class="btn-material" data-material="silver"><b>Silver</b></button>
+          </div>
+          <div class="material-option shell">
+            <img src="img/materials/platinum.jpg" class="preview" alt="Platinum" />
+            <button class="btn-material" data-material="platinum"><b>Platinum</b></button>
+          </div>
+          
+          <div class="material-option shell">
+            <img src="img/materials/brass.jpg" class="preview" alt="Brass" />
+            <button class="btn-material" data-material="brass"><b>Brass</b></button>
+          </div>
+          <div id="caratmat">
+            <p class="choosemat"><b>Material</p>
+            <select class="matlabel" id="caratSelect">
+              <option value="10KT">10KT</option>
+              <option value="14KT" selected>14KT</option>
+              <option value="18KT">18KT</option>
+            </select>
+          </div>
+          <div id="colormat">
+            <p class="choosemat"><b>Color</p>
+            <select class="matlabel" id="colorSelect">
+              <option value="yellowgold">Yellow</option>
+              <option value="whitegold">White</option>
+              <option value="pinkgold">Pink</option>
+            </select>
+          </div>
+        </div>
+        <div class="matgrid modelprice">
+        </div>
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <a href="https://jewelrylukas.com/request-a-quote-page/" class="btn btn-next">Submit</a>
+        </div>
+      </div>
+      </div>
+    </form>
+  </body>
+
+  <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@<version>/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@<version>/examples/jsm/"
+    }
+  }
+</script>
+
+  <!-- Casting price calculator by Argonaut twitter.com/astrointhenight -->
+  <!-- Version 1.0 -->
+
+
+  <script src="main.js"></script>
+  <script type="module" src="tshar.js"></script>
+</html>
